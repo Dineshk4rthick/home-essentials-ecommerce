@@ -1,7 +1,7 @@
 # Home Essentials - Complete E-commerce Website
 
 A modern, responsive e-commerce website for Home Essentials, built with HTML, CSS, and JavaScript. Features a complete shopping experience with product catalog, shopping cart, secure checkout, and more.
-
+visit: https://dineshk4rthick.github.io/home-essentials-ecommerce/
 ## 🚀 Features
 
 ### Core Functionality
