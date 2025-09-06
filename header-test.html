@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Consistency Test - Home Essentials</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { margin: 0; padding: 0; }
+        .test-controls { 
+            position: fixed; 
+            top: 10px; 
+            left: 10px; 
+            background: rgba(0,0,0,0.8); 
+            color: white; 
+            padding: 15px; 
+            border-radius: 8px; 
+            z-index: 10000; 
+            font-size: 12px;
+        }
+        .test-controls button { 
+            margin: 2px; 
+            padding: 5px 10px; 
+            font-size: 11px; 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 3px; 
+            cursor: pointer; 
+        }
+        .test-controls button:hover { background: #0056b3; }
+        .status { margin-top: 10px; font-size: 10px; }
+        .main-content { padding: 100px 20px 20px; }
+        .demo-card { background: #f8f9fa; padding: 20px; margin: 10px 0; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <!-- Test Controls -->
+    <div class="test-controls">
+        <strong>Header Test</strong><br>
+        <button onclick="toggleUserMenu()">Toggle User Menu</button>
+        <button onclick="testLogin()">Test Login</button>
+        <button onclick="testLogout()">Test Logout</button>
+        <button onclick="addToCart()">Add to Cart</button>
+        <button onclick="checkResponsive()">Check Mobile</button>
+        <div class="status" id="test-status">Ready</div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-home"></i>
+                        <span>Home Essentials</span>
+                    </a>
+                </div>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="products.html" class="nav-link">Products</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle">Categories <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="products.html?category=storage" class="dropdown-link">Storage Organizers</a></li>
+                                <li><a href="products.html?category=cookware" class="dropdown-link">Cookware</a></li>
+                                <li><a href="products.html?category=bathroom" class="dropdown-link">Bathroom Essentials</a></li>
+                                <li><a href="products.html?category=kids" class="dropdown-link">Kids Products</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search products..." id="search-input">
+                        <button class="search-btn" id="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="user-menu" id="user-menu">
+                        <button class="user-btn" id="user-btn" title="User Account Menu" aria-label="Open user account menu">
+                            <i class="fas fa-user" aria-hidden="true" data-profile-placeholder="👤"></i>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <div class="user-info" id="user-info">
+                                <div class="user-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="user-details">
+                                    <span class="user-name" id="user-name">Guest</span>
+                                    <span class="user-email" id="user-email">Not logged in</span>
+                                </div>
+                            </div>
+                            <div class="user-actions">
+                                <a href="login.html" class="user-action" id="login-action">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Login
+                                </a>
+                                <a href="login.html#orders" class="user-action" id="orders-action" style="display: none;">
+                                    <i class="fas fa-box"></i>
+                                    My Orders
+                                </a>
+                                <a href="login.html#profile" class="user-action" id="profile-action" style="display: none;">
+                                    <i class="fas fa-user-cog"></i>
+                                    Profile
+                                </a>
+                                <a href="#" class="user-action" id="logout-action" style="display: none;">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="cart-btn" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="demo-card">
+                <h2>Header Consistency Test</h2>
+                <p>This page tests the header navigation consistency across different states:</p>
+                <ul>
+                    <li>User menu dropdown positioning and styling</li>
+                    <li>Cart button and count consistency</li>
+                    <li>Search functionality</li>
+                    <li>Mobile responsiveness</li>
+                    <li>Icon consistency and fallbacks</li>
+                </ul>
+            </div>
+            
+            <div class="demo-card">
+                <h3>Test Instructions</h3>
+                <ol>
+                    <li>Click the user icon to test dropdown</li>
+                    <li>Try logging in with test credentials</li>
+                    <li>Test the cart functionality</li>
+                    <li>Resize window to test mobile view</li>
+                    <li>Check all icons are displaying properly</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        let cartCount = 0;
+        
+        // Test functions
+        function toggleUserMenu() {
+            const dropdown = document.getElementById('user-dropdown');
+            dropdown.classList.toggle('active');
+            document.getElementById('test-status').textContent = 'User menu toggled';
+        }
+        
+        function testLogin() {
+            const testUser = {
+                firstName: 'John',
+                lastName: 'Doe',
+                email: 'john.doe@example.com',
+                phone: '1234567890'
+            };
+            
+            localStorage.setItem('homeEssentials_user', JSON.stringify(testUser));
+            if (typeof updateUserMenuDisplay === 'function') {
+                updateUserMenuDisplay();
+            }
+            document.getElementById('test-status').textContent = 'Test login successful';
+        }
+        
+        function testLogout() {
+            localStorage.removeItem('homeEssentials_user');
+            if (typeof updateUserMenuDisplay === 'function') {
+                updateUserMenuDisplay();
+            }
+            document.getElementById('test-status').textContent = 'Test logout successful';
+        }
+        
+        function addToCart() {
+            cartCount++;
+            document.getElementById('cart-count').textContent = cartCount;
+            document.getElementById('test-status').textContent = `Cart count: ${cartCount}`;
+        }
+        
+        function checkResponsive() {
+            const width = window.innerWidth;
+            const isMobile = width <= 768;
+            document.getElementById('test-status').textContent = `Screen: ${width}px ${isMobile ? '(Mobile)' : '(Desktop)'}`;
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize user menu functionality
+            const userBtn = document.getElementById('user-btn');
+            const userDropdown = document.getElementById('user-dropdown');
+            const logoutAction = document.getElementById('logout-action');
+            
+            if (userBtn && userDropdown) {
+                userBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    userDropdown.classList.toggle('active');
+                });
+                
+                document.addEventListener('click', (e) => {
+                    if (!userDropdown.contains(e.target)) {
+                        userDropdown.classList.remove('active');
+                    }
+                });
+                
+                if (logoutAction) {
+                    logoutAction.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        testLogout();
+                    });
+                }
+            }
+            
+            // Initialize mobile menu
+            const menuToggle = document.getElementById('menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Update user menu display
+            if (typeof updateUserMenuDisplay === 'function') {
+                updateUserMenuDisplay();
+            }
+            
+            checkResponsive();
+        });
+        
+        // Check responsive on resize
+        window.addEventListener('resize', checkResponsive);
+    </script>
+</body>
+</html>

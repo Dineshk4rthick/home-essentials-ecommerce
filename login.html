@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Home Essentials | Sign In to Your Account</title>
+    <meta name="description" content="Sign in to your Home Essentials account to track orders, manage your profile, and enjoy a personalized shopping experience.">
+    <meta name="keywords" content="login, sign in, account, home essentials, user account">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Login - Home Essentials">
+    <meta property="og:description" content="Sign in to your account to access your orders and personalized features.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-home"></i>
+                        <span>Home Essentials</span>
+                    </a>
+                </div>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="products.html" class="nav-link">Products</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle">Categories <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="products.html?category=storage" class="dropdown-link">Storage Organizers</a></li>
+                                <li><a href="products.html?category=cookware" class="dropdown-link">Cookware</a></li>
+                                <li><a href="products.html?category=bathroom" class="dropdown-link">Bathroom Essentials</a></li>
+                                <li><a href="products.html?category=kids" class="dropdown-link">Kids Products</a></li>
+                                <li><a href="products.html?category=mats" class="dropdown-link">Floor Mats</a></li>
+                                <li><a href="products.html?category=sofa" class="dropdown-link">Sofa Covers</a></li>
+                                <li><a href="products.html?category=trash" class="dropdown-link">Trash Solutions</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search products..." id="search-input">
+                        <button class="search-btn" id="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="user-menu" id="user-menu">
+                        <button class="user-btn" id="user-btn">
+                            <i class="fas fa-user"></i>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <div class="user-info" id="user-info">
+                                <div class="user-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="user-details">
+                                    <span class="user-name" id="user-name">Guest</span>
+                                    <span class="user-email" id="user-email">Not logged in</span>
+                                </div>
+                            </div>
+                            <div class="user-actions">
+                                <a href="login.html" class="user-action" id="login-action">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Login
+                                </a>
+                                <a href="#" class="user-action" id="orders-action" style="display: none;" onclick="authSystem.switchTab('orders')">
+                                    <i class="fas fa-box"></i>
+                                    My Orders
+                                </a>
+                                <a href="#" class="user-action" id="profile-action" style="display: none;" onclick="authSystem.switchTab('profile')">
+                                    <i class="fas fa-user-cog"></i>
+                                    Profile
+                                </a>
+                                <a href="#" class="user-action" id="logout-action" style="display: none;">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="cart-btn" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="container">
+            <div class="login-container">
+                <!-- Login Form -->
+                <div class="auth-form" id="login-form">
+                    <div class="auth-header">
+                        <h2>Welcome Back!</h2>
+                        <p>Sign in to your account to continue shopping</p>
+                    </div>
+                    
+                    <form class="form" id="login-form-element">
+                        <div class="form-group">
+                            <label for="login-email">Email Address</label>
+                            <input type="email" id="login-email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <div class="password-input">
+                                <input type="password" id="login-password" class="form-input" required>
+                                <button type="button" class="password-toggle" id="login-password-toggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="remember-me">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Sign In
+                        </button>
+                    </form>
+                    
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="#" class="auth-switch" id="show-signup">Sign up here</a></p>
+                    </div>
+                </div>
+                
+                <!-- Signup Form -->
+                <div class="auth-form" id="signup-form" style="display: none;">
+                    <div class="auth-header">
+                        <h2>Create Account</h2>
+                        <p>Join Home Essentials and start your shopping journey</p>
+                    </div>
+                    
+                    <form class="form" id="signup-form-element">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="signup-firstname">First Name</label>
+                                <input type="text" id="signup-firstname" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-lastname">Last Name</label>
+                                <input type="text" id="signup-lastname" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signup-email">Email Address</label>
+                            <input type="email" id="signup-email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signup-phone">Phone Number</label>
+                            <input type="tel" id="signup-phone" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <div class="password-input">
+                                <input type="password" id="signup-password" class="form-input" required>
+                                <button type="button" class="password-toggle" id="signup-password-toggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength" id="password-strength"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signup-confirm-password">Confirm Password</label>
+                            <div class="password-input">
+                                <input type="password" id="signup-confirm-password" class="form-input" required>
+                                <button type="button" class="password-toggle" id="signup-confirm-password-toggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="agree-terms" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-user-plus"></i>
+                            Create Account
+                        </button>
+                    </form>
+                    
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="#" class="auth-switch" id="show-login">Sign in here</a></p>
+                    </div>
+                </div>
+                
+                <!-- User Dashboard (shown after login) -->
+                <div class="user-dashboard" id="user-dashboard" style="display: none;">
+                    <div class="dashboard-header">
+                        <div class="user-welcome">
+                            <h2>Welcome back, <span id="dashboard-user-name">User</span>!</h2>
+                            <p>Manage your account and track your orders</p>
+                        </div>
+                        <button class="btn btn-outline" id="dashboard-logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </button>
+                    </div>
+                    
+                    <div class="dashboard-tabs">
+                        <button class="tab-btn active" data-tab="orders">
+                            <i class="fas fa-box"></i>
+                            My Orders
+                        </button>
+                        <button class="tab-btn" data-tab="profile">
+                            <i class="fas fa-user"></i>
+                            Profile
+                        </button>
+                        <button class="tab-btn" data-tab="addresses">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Addresses
+                        </button>
+                    </div>
+                    
+                    <div class="dashboard-content">
+                        <!-- Orders Tab -->
+                        <div class="tab-content active" id="orders-tab">
+                            <div class="orders-header">
+                                <h3>Your Orders</h3>
+                                <div class="orders-filter">
+                                    <select id="order-filter">
+                                        <option value="all">All Orders</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="shipped">Shipped</option>
+                                        <option value="delivered">Delivered</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="orders-list" id="orders-list">
+                                <!-- Orders will be loaded dynamically -->
+                            </div>
+                        </div>
+                        
+                        <!-- Profile Tab -->
+                        <div class="tab-content" id="profile-tab">
+                            <div class="profile-section">
+                                <h3>Personal Information</h3>
+                                <form class="profile-form" id="profile-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="profile-firstname">First Name</label>
+                                            <input type="text" id="profile-firstname" class="form-input">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="profile-lastname">Last Name</label>
+                                            <input type="text" id="profile-lastname" class="form-input">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="profile-email">Email Address</label>
+                                        <input type="email" id="profile-email" class="form-input" readonly>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="profile-phone">Phone Number</label>
+                                        <input type="tel" id="profile-phone" class="form-input">
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i>
+                                        Save Changes
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Addresses Tab -->
+                        <div class="tab-content" id="addresses-tab">
+                            <div class="addresses-header">
+                                <h3>Saved Addresses</h3>
+                                <button class="btn btn-primary" id="add-address-btn">
+                                    <i class="fas fa-plus"></i>
+                                    Add New Address
+                                </button>
+                            </div>
+                            
+                            <div class="addresses-list" id="addresses-list">
+                                <!-- Addresses will be loaded dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Details Modal -->
+    <div class="modal" id="order-details-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Order Details</h3>
+                <button class="modal-close" id="order-details-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="order-details-body">
+                <!-- Order details will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <i class="fas fa-home"></i>
+                            <span>Home Essentials</span>
+                        </a>
+                        <p class="footer-description">
+                            Your trusted partner for quality home products. 
+                            We bring convenience, style, and functionality to every home.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html?category=storage">Storage Organizers</a></li>
+                        <li><a href="products.html?category=cookware">Cookware</a></li>
+                        <li><a href="products.html?category=bathroom">Bathroom Essentials</a></li>
+                        <li><a href="products.html?category=kids">Kids Products</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>New Delhi, India</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 99999 99999</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@homeessentials.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        &copy; 2025 Home Essentials. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">Shopping Cart</h3>
+            <button class="cart-close" id="cart-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-content" id="cart-content">
+            <!-- Cart items will be loaded dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="total-label">Total: </span>
+                <span class="total-amount" id="cart-total">₹0</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkout-btn">
+                <i class="fas fa-credit-card"></i>
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

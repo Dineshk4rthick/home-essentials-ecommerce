@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Debug - Home Essentials</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; background: #f9f9f9; }
+        .test-result { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        .info { background-color: #d1ecf1; color: #0c5460; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        .user-menu { position: relative; display: inline-block; }
+        .user-btn { background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+        .user-dropdown { position: absolute; top: 100%; left: 0; background: white; border: 1px solid #ccc; border-radius: 5px; min-width: 200px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: none; }
+        .user-dropdown.active { display: block; }
+        .user-info { padding: 15px; border-bottom: 1px solid #eee; }
+        .user-actions { padding: 0; }
+        .user-action { display: block; padding: 10px 15px; color: #333; text-decoration: none; }
+        .user-action:hover { background: #f8f9fa; }
+    </style>
+</head>
+<body>
+    <h1>Login Debug Interface</h1>
+    
+    <div class="debug-section">
+        <h2>Current Status</h2>
+        <div id="status-display" class="test-result info">Loading...</div>
+        <button onclick="checkStatus()">Refresh Status</button>
+    </div>
+    
+    <div class="debug-section">
+        <h2>Test Authentication</h2>
+        <button onclick="testLogin()">Test Login</button>
+        <button onclick="testLogout()">Test Logout</button>
+        <button onclick="clearData()">Clear All Data</button>
+    </div>
+    
+    <div class="debug-section">
+        <h2>User Menu Test</h2>
+        <div class="user-menu" id="user-menu">
+            <button class="user-btn" id="user-btn">
+                <i class="fas fa-user"></i> User Menu
+            </button>
+            <div class="user-dropdown" id="user-dropdown">
+                <div class="user-info" id="user-info">
+                    <div class="user-details">
+                        <span class="user-name" id="user-name">Guest</span><br>
+                        <span class="user-email" id="user-email">Not logged in</span>
+                    </div>
+                </div>
+                <div class="user-actions">
+                    <a href="login.html" class="user-action" id="login-action">
+                        Login
+                    </a>
+                    <a href="login.html#orders" class="user-action" id="orders-action" style="display: none;">
+                        My Orders
+                    </a>
+                    <a href="login.html#profile" class="user-action" id="profile-action" style="display: none;">
+                        Profile
+                    </a>
+                    <a href="#" class="user-action" id="logout-action" style="display: none;">
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>Script Loading Status</h2>
+        <div id="script-status" class="test-result info">Loading...</div>
+        <button onclick="checkScripts()">Check Scripts</button>
+    </div>
+    
+    <div class="debug-section">
+        <h2>Navigation Test</h2>
+        <button onclick="window.location.href='index.html'">Go to Homepage</button>
+        <button onclick="window.location.href='login.html'">Go to Login Page</button>
+    </div>
+
+    <!-- Load the same scripts as the main site -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+
+    <script>
+        // Debug functions
+        function checkStatus() {
+            const statusDiv = document.getElementById('status-display');
+            const userData = localStorage.getItem('homeEssentials_user');
+            
+            let status = `<strong>localStorage User Data:</strong> ${userData || 'None'}<br>`;
+            status += `<strong>window.authSystem:</strong> ${window.authSystem ? 'Available' : 'Not Available'}<br>`;
+            
+            if (window.authSystem) {
+                const currentUser = window.authSystem.getCurrentUser();
+                status += `<strong>Current User:</strong> ${currentUser ? JSON.stringify(currentUser) : 'None'}<br>`;
+                status += `<strong>isLoggedIn():</strong> ${window.authSystem.isLoggedIn()}<br>`;
+            }
+            
+            statusDiv.innerHTML = status;
+            statusDiv.className = userData ? 'test-result success' : 'test-result info';
+        }
+        
+        function testLogin() {
+            const testUser = {
+                firstName: 'John',
+                lastName: 'Doe',
+                email: 'john.doe@example.com',
+                phone: '1234567890'
+            };
+            
+            localStorage.setItem('homeEssentials_user', JSON.stringify(testUser));
+            alert('Test login successful!');
+            checkStatus();
+            updateUserMenuDisplay();
+        }
+        
+        function testLogout() {
+            localStorage.removeItem('homeEssentials_user');
+            alert('Test logout successful!');
+            checkStatus();
+            updateUserMenuDisplay();
+        }
+        
+        function clearData() {
+            localStorage.clear();
+            alert('All data cleared!');
+            checkStatus();
+            updateUserMenuDisplay();
+        }
+        
+        function checkScripts() {
+            const scriptDiv = document.getElementById('script-status');
+            let status = '';
+            
+            status += `<strong>products.js loaded:</strong> ${typeof searchProducts === 'function' ? 'Yes' : 'No'}<br>`;
+            status += `<strong>cart.js loaded:</strong> ${typeof addToCart === 'function' ? 'Yes' : 'No'}<br>`;
+            status += `<strong>main.js loaded:</strong> ${typeof updateUserMenuDisplay === 'function' ? 'Yes' : 'No'}<br>`;
+            status += `<strong>login.js loaded:</strong> ${typeof AuthSystem === 'function' ? 'Yes' : 'No'}<br>`;
+            status += `<strong>showNotification:</strong> ${typeof showNotification === 'function' ? 'Yes' : 'No'}<br>`;
+            
+            scriptDiv.innerHTML = status;
+        }
+        
+        // Initialize user menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const userBtn = document.getElementById('user-btn');
+            const userDropdown = document.getElementById('user-dropdown');
+            const logoutAction = document.getElementById('logout-action');
+            
+            if (userBtn && userDropdown) {
+                userBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    userDropdown.classList.toggle('active');
+                });
+                
+                document.addEventListener('click', (e) => {
+                    if (!userDropdown.contains(e.target)) {
+                        userDropdown.classList.remove('active');
+                    }
+                });
+                
+                if (logoutAction) {
+                    logoutAction.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        testLogout();
+                    });
+                }
+            }
+            
+            // Initial status check
+            setTimeout(() => {
+                checkStatus();
+                checkScripts();
+                if (typeof updateUserMenuDisplay === 'function') {
+                    updateUserMenuDisplay();
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>

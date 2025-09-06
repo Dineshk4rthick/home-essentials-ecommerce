@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Home Essentials | Secure Payment & Fast Delivery</title>
+    <meta name="description" content="Complete your purchase securely with Home Essentials. Multiple payment options, fast delivery, and 100% secure checkout process.">
+    <meta name="keywords" content="checkout, payment, secure checkout, home essentials, online shopping">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Secure Checkout - Home Essentials">
+    <meta property="og:description" content="Complete your purchase securely with multiple payment options.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-home"></i>
+                        <span>Home Essentials</span>
+                    </a>
+                </div>
+                
+                <div class="checkout-progress">
+                    <div class="progress-step active">
+                        <div class="step-number">1</div>
+                        <span class="step-label">Cart</span>
+                    </div>
+                    <div class="progress-line active"></div>
+                    <div class="progress-step active">
+                        <div class="step-number">2</div>
+                        <span class="step-label">Checkout</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <div class="step-number">3</div>
+                        <span class="step-label">Payment</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <div class="step-number">4</div>
+                        <span class="step-label">Confirmation</span>
+                    </div>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="user-menu" id="user-menu">
+                        <button class="user-btn" id="user-btn">
+                            <i class="fas fa-user"></i>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <div class="user-info" id="user-info">
+                                <div class="user-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="user-details">
+                                    <span class="user-name" id="user-name">Guest</span>
+                                    <span class="user-email" id="user-email">Not logged in</span>
+                                </div>
+                            </div>
+                            <div class="user-actions">
+                                <a href="login.html" class="user-action" id="login-action">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Login
+                                </a>
+                                <a href="login.html#orders" class="user-action" id="orders-action" style="display: none;">
+                                    <i class="fas fa-box"></i>
+                                    My Orders
+                                </a>
+                                <a href="login.html#profile" class="user-action" id="profile-action" style="display: none;">
+                                    <i class="fas fa-user-cog"></i>
+                                    Profile
+                                </a>
+                                <a href="#" class="user-action" id="logout-action" style="display: none;">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="index.html" class="btn btn-outline-sm">
+                        <i class="fas fa-arrow-left"></i>
+                        Continue Shopping
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="checkout-container">
+                <!-- Left Column - Forms -->
+                <div class="checkout-forms">
+                    <!-- Guest/Login Options -->
+                    <div class="checkout-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-user"></i>
+                            Account Information
+                        </h2>
+                        <div class="account-options">
+                            <div class="option-tabs">
+                                <button class="tab-btn active" data-tab="guest">
+                                    <i class="fas fa-user-clock"></i>
+                                    Guest Checkout
+                                </button>
+                                <button class="tab-btn" data-tab="login">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Login
+                                </button>
+                                <button class="tab-btn" data-tab="register">
+                                    <i class="fas fa-user-plus"></i>
+                                    Register
+                                </button>
+                            </div>
+                            
+                            <div class="tab-content active" id="guest-tab">
+                                <p class="tab-description">
+                                    <i class="fas fa-info-circle"></i>
+                                    Continue as guest. You can create an account after checkout.
+                                </p>
+                            </div>
+                            
+                            <div class="tab-content" id="login-tab">
+                                <form class="login-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="login-email">Email Address</label>
+                                            <input type="email" id="login-email" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="login-password">Password</label>
+                                            <input type="password" id="login-password" required>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        Login
+                                    </button>
+                                    <a href="#" class="forgot-password">Forgot Password?</a>
+                                </form>
+                            </div>
+                            
+                            <div class="tab-content" id="register-tab">
+                                <form class="register-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="reg-name">Full Name</label>
+                                            <input type="text" id="reg-name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="reg-email">Email Address</label>
+                                            <input type="email" id="reg-email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="reg-password">Password</label>
+                                            <input type="password" id="reg-password" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="reg-confirm">Confirm Password</label>
+                                            <input type="password" id="reg-confirm" required>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-user-plus"></i>
+                                        Create Account
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Information -->
+                    <div class="checkout-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-truck"></i>
+                            Shipping Information
+                        </h2>
+                        <form class="shipping-form" id="shipping-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name *</label>
+                                    <input type="text" id="first-name" name="firstName" required>
+                                    <span class="form-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name *</label>
+                                    <input type="text" id="last-name" name="lastName" required>
+                                    <span class="form-error"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="form-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                                <span class="form-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Street Address *</label>
+                                <input type="text" id="address" name="address" required>
+                                <span class="form-error"></span>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City *</label>
+                                    <input type="text" id="city" name="city" required>
+                                    <span class="form-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State *</label>
+                                    <select id="state" name="state" required>
+                                        <option value="">Select State</option>
+                                        <option value="AP">Andhra Pradesh</option>
+                                        <option value="AR">Arunachal Pradesh</option>
+                                        <option value="AS">Assam</option>
+                                        <option value="BR">Bihar</option>
+                                        <option value="CT">Chhattisgarh</option>
+                                        <option value="DL">Delhi</option>
+                                        <option value="GA">Goa</option>
+                                        <option value="GJ">Gujarat</option>
+                                        <option value="HR">Haryana</option>
+                                        <option value="HP">Himachal Pradesh</option>
+                                        <option value="JK">Jammu and Kashmir</option>
+                                        <option value="JH">Jharkhand</option>
+                                        <option value="KA">Karnataka</option>
+                                        <option value="KL">Kerala</option>
+                                        <option value="MP">Madhya Pradesh</option>
+                                        <option value="MH">Maharashtra</option>
+                                        <option value="MN">Manipur</option>
+                                        <option value="ML">Meghalaya</option>
+                                        <option value="MZ">Mizoram</option>
+                                        <option value="NL">Nagaland</option>
+                                        <option value="OR">Odisha</option>
+                                        <option value="PB">Punjab</option>
+                                        <option value="RJ">Rajasthan</option>
+                                        <option value="SK">Sikkim</option>
+                                        <option value="TN">Tamil Nadu</option>
+                                        <option value="TG">Telangana</option>
+                                        <option value="TR">Tripura</option>
+                                        <option value="UP">Uttar Pradesh</option>
+                                        <option value="UT">Uttarakhand</option>
+                                        <option value="WB">West Bengal</option>
+                                    </select>
+                                    <span class="form-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pincode">PIN Code *</label>
+                                    <input type="text" id="pincode" name="pincode" required pattern="[0-9]{6}">
+                                    <span class="form-error"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-options">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="save-address">
+                                    <span class="checkmark"></span>
+                                    Save this address for future orders
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="billing-same">
+                                    <span class="checkmark"></span>
+                                    Billing address same as shipping
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Delivery Options -->
+                    <div class="checkout-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-shipping-fast"></i>
+                            Delivery Options
+                        </h2>
+                        <div class="delivery-options">
+                            <div class="delivery-option">
+                                <label class="radio-label">
+                                    <input type="radio" name="delivery" value="standard" checked>
+                                    <span class="radio-mark"></span>
+                                    <div class="option-details">
+                                        <div class="option-title">Standard Delivery</div>
+                                        <div class="option-description">5-7 business days</div>
+                                        <div class="option-price">Free</div>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="delivery-option">
+                                <label class="radio-label">
+                                    <input type="radio" name="delivery" value="express">
+                                    <span class="radio-mark"></span>
+                                    <div class="option-details">
+                                        <div class="option-title">Express Delivery</div>
+                                        <div class="option-description">2-3 business days</div>
+                                        <div class="option-price">₹99</div>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="delivery-option">
+                                <label class="radio-label">
+                                    <input type="radio" name="delivery" value="next-day">
+                                    <span class="radio-mark"></span>
+                                    <div class="option-details">
+                                        <div class="option-title">Next Day Delivery</div>
+                                        <div class="option-description">Next business day</div>
+                                        <div class="option-price">₹199</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="checkout-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-credit-card"></i>
+                            Payment Method
+                        </h2>
+                        <div class="payment-methods">
+                            <div class="payment-option">
+                                <label class="radio-label">
+                                    <input type="radio" name="payment" value="card" checked>
+                                    <span class="radio-mark"></span>
+                                    <div class="option-details">
+                                        <div class="option-title">
+                                            <i class="fas fa-credit-card"></i>
+                                            Credit/Debit Card
+                                        </div>
+                                        <div class="option-description">Visa, Mastercard, RuPay</div>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="payment-option">
+                                <label class="radio-label">
+                                    <input type="radio" name="payment" value="upi">
+                                    <span class="radio-mark"></span>
+                                    <div class="option-details">
+                                        <div class="option-title">
+                                            <i class="fas fa-mobile-alt"></i>
+                                            UPI Payment
+                                        </div>
+                                        <div class="option-description">PayTM, PhonePe, Google Pay</div>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="payment-option">
+                                <label class="radio-label">
+                                    <input type="radio" name="payment" value="wallet">
+                                    <span class="radio-mark"></span>
+                                    <div class="option-details">
+                                        <div class="option-title">
+                                            <i class="fas fa-wallet"></i>
+                                            Digital Wallet
+                                        </div>
+                                        <div class="option-description">PayTM, Amazon Pay, Mobikwik</div>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="payment-option">
+                                <label class="radio-label">
+                                    <input type="radio" name="payment" value="cod">
+                                    <span class="radio-mark"></span>
+                                    <div class="option-details">
+                                        <div class="option-title">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                            Cash on Delivery
+                                        </div>
+                                        <div class="option-description">Pay when you receive</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Card Details Form -->
+                        <div class="payment-details" id="card-details">
+                            <form class="card-form">
+                                <div class="form-group">
+                                    <label for="card-number">Card Number *</label>
+                                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                                    <span class="form-error"></span>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiry">Expiry Date *</label>
+                                        <input type="text" id="expiry" placeholder="MM/YY" required>
+                                        <span class="form-error"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV *</label>
+                                        <input type="text" id="cvv" placeholder="123" required>
+                                        <span class="form-error"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="card-name">Name on Card *</label>
+                                    <input type="text" id="card-name" required>
+                                    <span class="form-error"></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-shopping-bag"></i>
+                            Order Summary
+                        </h2>
+                        
+                        <div class="cart-items" id="checkout-cart-items">
+                            <!-- Cart items will be loaded dynamically -->
+                        </div>
+                        
+                        <div class="promo-code">
+                            <div class="promo-input">
+                                <input type="text" id="promo-code" placeholder="Enter promo code">
+                                <button class="btn btn-outline-sm" id="apply-promo">Apply</button>
+                            </div>
+                        </div>
+                        
+                        <div class="order-totals">
+                            <div class="total-row">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">₹0</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Delivery:</span>
+                                <span id="delivery-cost">Free</span>
+                            </div>
+                            <div class="total-row promo-discount" style="display: none;">
+                                <span>Discount:</span>
+                                <span id="discount-amount">-₹0</span>
+                            </div>
+                            <div class="total-row tax-row">
+                                <span>Tax (18% GST):</span>
+                                <span id="tax-amount">₹0</span>
+                            </div>
+                            <div class="total-row final-total">
+                                <span>Total:</span>
+                                <span id="final-total">₹0</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-full" id="place-order">
+                            <i class="fas fa-lock"></i>
+                            Place Secure Order
+                        </button>
+                        
+                        <div class="security-badges">
+                            <div class="badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>SSL Secured</span>
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-undo"></i>
+                                <span>30-Day Returns</span>
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-truck"></i>
+                                <span>Free Shipping</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Confirmation Modal -->
+    <div class="modal" id="order-confirmation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Order Confirmed!</h2>
+                <p>Thank you for your purchase</p>
+            </div>
+            
+            <div class="modal-body">
+                <div class="order-details">
+                    <div class="detail-row">
+                        <span>Order Number:</span>
+                        <strong id="order-number">HE-2025-001</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Order Total:</span>
+                        <strong id="order-total">₹0</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Delivery Address:</span>
+                        <strong id="delivery-address">Loading...</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Expected Delivery:</span>
+                        <strong id="expected-delivery">Loading...</strong>
+                    </div>
+                </div>
+                
+                <div class="confirmation-message">
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        A confirmation email has been sent to your email address.
+                    </p>
+                    <p>
+                        <i class="fas fa-mobile-alt"></i>
+                        You'll receive SMS updates about your order status.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="track-order">
+                    <i class="fas fa-search"></i>
+                    Track Order
+                </button>
+                <button class="btn btn-outline" id="continue-shopping">
+                    <i class="fas fa-shopping-bag"></i>
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modal-overlay"></div>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

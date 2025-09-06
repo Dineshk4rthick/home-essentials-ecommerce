@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Essentials - Quality Home Products | Premium Storage & Cookware</title>
+    <meta name="description" content="Discover premium home essentials including storage organizers, cookware, bathroom accessories, and more. Quality products with up to 35% off. Free shipping across India.">
+    <meta name="keywords" content="home essentials, storage organizers, cookware, bathroom accessories, home products, kitchen organizers">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Home Essentials - Quality Home Products">
+    <meta property="og:description" content="Premium home essentials with up to 35% off. Storage, cookware, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://homeessentials.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Backup Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css" crossorigin="anonymous">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-home"></i>
+                        <span>Home Essentials</span>
+                    </a>
+                </div>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="products.html" class="nav-link">Products</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle">Categories <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="products.html?category=storage" class="dropdown-link">Storage Organizers</a></li>
+                                <li><a href="products.html?category=cookware" class="dropdown-link">Cookware</a></li>
+                                <li><a href="products.html?category=bathroom" class="dropdown-link">Bathroom Essentials</a></li>
+                                <li><a href="products.html?category=kids" class="dropdown-link">Kids Products</a></li>
+                                <li><a href="products.html?category=mats" class="dropdown-link">Floor Mats</a></li>
+                                <li><a href="products.html?category=sofa" class="dropdown-link">Sofa Covers</a></li>
+                                <li><a href="products.html?category=trash" class="dropdown-link">Trash Solutions</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search products..." id="search-input">
+                        <button class="search-btn" id="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="user-menu" id="user-menu">
+                        <button class="user-btn" id="user-btn" title="User Account Menu" aria-label="Open user account menu" data-login-text="Login" data-logout-text="Logout">
+                            <i class="fas fa-user" aria-hidden="true" data-profile-placeholder="👤"></i>
+                            <span class="user-text" id="user-text">Login</span>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <div class="user-info" id="user-info">
+                                <div class="user-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="user-details">
+                                    <span class="user-name" id="user-name">Guest</span>
+                                    <span class="user-email" id="user-email">Not logged in</span>
+                                </div>
+                            </div>
+                            <div class="user-actions">
+                                <a href="login.html" class="user-action" id="login-action">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Login
+                                </a>
+                                <a href="login.html#orders" class="user-action" id="orders-action" style="display: none;">
+                                    <i class="fas fa-box"></i>
+                                    My Orders
+                                </a>
+                                <a href="login.html#profile" class="user-action" id="profile-action" style="display: none;">
+                                    <i class="fas fa-user-cog"></i>
+                                    Profile
+                                </a>
+                                <a href="#" class="user-action" id="logout-action" style="display: none;">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="cart-btn" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Transform Your Home with
+                    <span class="gradient-text">Premium Essentials</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Discover quality home products that combine functionality with style. 
+                    From storage solutions to cookware - everything you need for a perfect home.
+                </p>
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <i class="fas fa-truck"></i>
+                        <span>Free Shipping</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Quality Guarantee</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-percentage"></i>
+                        <span>Up to 35% Off</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="products.html" class="btn btn-primary">
+                        <i class="fas fa-shopping-bag"></i>
+                        Shop Now
+                    </a>
+                    <a href="#featured-products" class="btn btn-outline">
+                        <i class="fas fa-arrow-down"></i>
+                        Explore Products
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products" id="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Products</h2>
+                <p class="section-subtitle">Handpicked essentials for your home</p>
+            </div>
+            
+            <div class="products-grid" id="featured-products-grid">
+                <!-- Products will be loaded dynamically -->
+            </div>
+            
+            <div class="section-footer">
+                <a href="products.html" class="btn btn-outline-large">
+                    View All Products
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Shop by Category</h2>
+                <p class="section-subtitle">Find exactly what you need</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card" data-category="storage">
+                    <div class="category-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3 class="category-title">Storage Organizers</h3>
+                    <p class="category-description">Smart storage solutions for every room</p>
+                    <span class="category-count">6 Products</span>
+                </div>
+                
+                <div class="category-card" data-category="cookware">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="category-title">Cookware</h3>
+                    <p class="category-description">Premium cooking essentials</p>
+                    <span class="category-count">3 Products</span>
+                </div>
+                
+                <div class="category-card" data-category="bathroom">
+                    <div class="category-icon">
+                        <i class="fas fa-bath"></i>
+                    </div>
+                    <h3 class="category-title">Bathroom Essentials</h3>
+                    <p class="category-description">Transform your bathroom space</p>
+                    <span class="category-count">3 Products</span>
+                </div>
+                
+                <div class="category-card" data-category="kids">
+                    <div class="category-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="category-title">Kids Products</h3>
+                    <p class="category-description">Safe and fun for children</p>
+                    <span class="category-count">2 Products</span>
+                </div>
+                
+                <div class="category-card" data-category="mats">
+                    <div class="category-icon">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <h3 class="category-title">Floor Mats</h3>
+                    <p class="category-description">Comfort and safety underfoot</p>
+                    <span class="category-count">2 Products</span>
+                </div>
+                
+                <div class="category-card" data-category="sofa">
+                    <div class="category-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3 class="category-title">Sofa Covers</h3>
+                    <p class="category-description">Protect and beautify furniture</p>
+                    <span class="category-count">1 Product</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Home Essentials?</h2>
+                <p class="section-subtitle">Your trusted partner for quality home products</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="feature-title">Premium Quality</h3>
+                    <p class="feature-description">
+                        Handpicked products that meet our strict quality standards. 
+                        Every item is tested for durability and functionality.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3 class="feature-title">Fast Delivery</h3>
+                    <p class="feature-description">
+                        Quick and reliable shipping across India. Most orders 
+                        delivered within 2-5 business days.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title">24/7 Support</h3>
+                    <p class="feature-description">
+                        Our dedicated customer service team is always ready 
+                        to help with any questions or concerns.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <h3 class="feature-title">Easy Returns</h3>
+                    <p class="feature-description">
+                        30-day hassle-free return policy. Not satisfied? 
+                        Return for a full refund, no questions asked.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2 class="newsletter-title">Stay Updated</h2>
+                    <p class="newsletter-subtitle">
+                        Get the latest deals, new products, and home tips delivered to your inbox
+                    </p>
+                </div>
+                <form class="newsletter-form" id="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                        <button type="submit" class="newsletter-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Subscribe
+                        </button>
+                    </div>
+                    <p class="newsletter-privacy">
+                        <i class="fas fa-lock"></i>
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <i class="fas fa-home"></i>
+                            <span>Home Essentials</span>
+                        </a>
+                        <p class="footer-description">
+                            Your trusted partner for quality home products. 
+                            We bring convenience, style, and functionality to every home.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html?category=storage">Storage Organizers</a></li>
+                        <li><a href="products.html?category=cookware">Cookware</a></li>
+                        <li><a href="products.html?category=bathroom">Bathroom Essentials</a></li>
+                        <li><a href="products.html?category=kids">Kids Products</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>New Delhi, India</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 99999 99999</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@homeessentials.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        &copy; 2025 Home Essentials. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">Shopping Cart</h3>
+            <button class="cart-close" id="cart-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-content" id="cart-content">
+            <!-- Cart items will be loaded dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="total-label">Total: </span>
+                <span class="total-amount" id="cart-total">₹0</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkout-btn">
+                <i class="fas fa-credit-card"></i>
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

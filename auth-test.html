@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Test - Home Essentials</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        .test-result { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        .info { background-color: #d1ecf1; color: #0c5460; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Authentication System Test</h1>
+    
+    <div class="test-section">
+        <h2>Current Authentication Status</h2>
+        <div id="auth-status" class="test-result info">Loading...</div>
+        <button onclick="refreshStatus()">Refresh Status</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test Login</h2>
+        <p>This will simulate a login with test credentials:</p>
+        <button onclick="testLogin()">Test Login</button>
+        <button onclick="testLogout()">Test Logout</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Navigation Test</h2>
+        <p>Test navigation to different pages:</p>
+        <button onclick="window.location.href='index.html'">Go to Homepage</button>
+        <button onclick="window.location.href='products.html'">Go to Products</button>
+        <button onclick="window.location.href='login.html'">Go to Login Page</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Local Storage Data</h2>
+        <div id="storage-data" class="test-result info">Loading...</div>
+        <button onclick="showStorageData()">Show Storage Data</button>
+        <button onclick="clearStorageData()">Clear Storage Data</button>
+    </div>
+
+    <script>
+        // Test functions
+        function refreshStatus() {
+            const userData = localStorage.getItem('homeEssentials_user');
+            const statusDiv = document.getElementById('auth-status');
+            
+            if (userData) {
+                try {
+                    const user = JSON.parse(userData);
+                    statusDiv.innerHTML = `
+                        <strong>Status:</strong> Logged In<br>
+                        <strong>Name:</strong> ${user.firstName} ${user.lastName}<br>
+                        <strong>Email:</strong> ${user.email}
+                    `;
+                    statusDiv.className = 'test-result success';
+                } catch (e) {
+                    statusDiv.innerHTML = 'Error: Invalid user data in localStorage';
+                    statusDiv.className = 'test-result error';
+                }
+            } else {
+                statusDiv.innerHTML = '<strong>Status:</strong> Not Logged In';
+                statusDiv.className = 'test-result info';
+            }
+        }
+        
+        function testLogin() {
+            const testUser = {
+                firstName: 'Test',
+                lastName: 'User',
+                email: 'test@example.com',
+                phone: '1234567890'
+            };
+            
+            localStorage.setItem('homeEssentials_user', JSON.stringify(testUser));
+            alert('Test login successful! User data stored in localStorage.');
+            refreshStatus();
+        }
+        
+        function testLogout() {
+            localStorage.removeItem('homeEssentials_user');
+            alert('Test logout successful! User data removed from localStorage.');
+            refreshStatus();
+        }
+        
+        function showStorageData() {
+            const storageDiv = document.getElementById('storage-data');
+            const userData = localStorage.getItem('homeEssentials_user');
+            
+            if (userData) {
+                storageDiv.innerHTML = `<pre>${userData}</pre>`;
+                storageDiv.className = 'test-result success';
+            } else {
+                storageDiv.innerHTML = 'No user data found in localStorage';
+                storageDiv.className = 'test-result info';
+            }
+        }
+        
+        function clearStorageData() {
+            localStorage.removeItem('homeEssentials_user');
+            alert('Storage data cleared!');
+            refreshStatus();
+            showStorageData();
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            refreshStatus();
+            showStorageData();
+        });
+    </script>
+</body>
+</html>

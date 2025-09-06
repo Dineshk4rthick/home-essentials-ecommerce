@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Home Essentials | Our Story & Mission</title>
+    <meta name="description" content="Learn about Home Essentials - your trusted partner for quality home products. Discover our mission, values, and commitment to bringing you the best home essentials.">
+    <meta name="keywords" content="about home essentials, our story, company mission, quality home products, customer service">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="About Us - Home Essentials">
+    <meta property="og:description" content="Learn about our mission to bring quality home products to every household.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-home"></i>
+                        <span>Home Essentials</span>
+                    </a>
+                </div>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="products.html" class="nav-link">Products</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle">Categories <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="products.html?category=storage" class="dropdown-link">Storage Organizers</a></li>
+                                <li><a href="products.html?category=cookware" class="dropdown-link">Cookware</a></li>
+                                <li><a href="products.html?category=bathroom" class="dropdown-link">Bathroom Essentials</a></li>
+                                <li><a href="products.html?category=kids" class="dropdown-link">Kids Products</a></li>
+                                <li><a href="products.html?category=mats" class="dropdown-link">Floor Mats</a></li>
+                                <li><a href="products.html?category=sofa" class="dropdown-link">Sofa Covers</a></li>
+                                <li><a href="products.html?category=trash" class="dropdown-link">Trash Solutions</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link active">About</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search products..." id="search-input">
+                        <button class="search-btn" id="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="user-menu" id="user-menu">
+                        <button class="user-btn" id="user-btn">
+                            <i class="fas fa-user"></i>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <div class="user-info" id="user-info">
+                                <div class="user-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="user-details">
+                                    <span class="user-name" id="user-name">Guest</span>
+                                    <span class="user-email" id="user-email">Not logged in</span>
+                                </div>
+                            </div>
+                            <div class="user-actions">
+                                <a href="login.html" class="user-action" id="login-action">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Login
+                                </a>
+                                <a href="login.html#orders" class="user-action" id="orders-action" style="display: none;">
+                                    <i class="fas fa-box"></i>
+                                    My Orders
+                                </a>
+                                <a href="login.html#profile" class="user-action" id="profile-action" style="display: none;">
+                                    <i class="fas fa-user-cog"></i>
+                                    Profile
+                                </a>
+                                <a href="#" class="user-action" id="logout-action" style="display: none;">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="cart-btn" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    About <span class="gradient-text">Home Essentials</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Your trusted partner in creating beautiful, functional, and organized homes. 
+                    We believe that every home deserves quality products that enhance daily living.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">10,000+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Quality Products</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5 Years</div>
+                        <div class="stat-label">Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-label">Satisfaction Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="our-story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2 class="section-title">Our Story</h2>
+                    <p class="story-intro">
+                        Home Essentials was born from a simple belief: every home should be a sanctuary 
+                        of comfort, organization, and style.
+                    </p>
+                    <div class="story-details">
+                        <p>
+                            Founded in 2020, our journey began when our founders experienced the frustration 
+                            of finding quality home products that were both functional and affordable. Too 
+                            often, they encountered products that looked great but fell apart quickly, or 
+                            items that were durable but lacked aesthetic appeal.
+                        </p>
+                        <p>
+                            This gap in the market inspired us to create Home Essentials - a brand dedicated 
+                            to sourcing and curating products that meet the highest standards of quality, 
+                            functionality, and design. We believe that your home should reflect who you are 
+                            and support how you live.
+                        </p>
+                        <p>
+                            Today, we're proud to serve thousands of customers across India, helping them 
+                            transform their houses into homes they love. Every product in our collection 
+                            is carefully selected and tested to ensure it meets our strict criteria for 
+                            quality and value.
+                        </p>
+                    </div>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1556909114-4f980c9bb7b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Our story" loading="lazy">
+                    <div class="image-overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Watch Our Story</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-card mission">
+                    <div class="mv-icon">
+                        <i class="fas fa-target"></i>
+                    </div>
+                    <h3 class="mv-title">Our Mission</h3>
+                    <p class="mv-description">
+                        To make quality home products accessible to everyone by offering carefully 
+                        curated essentials that combine functionality, durability, and style at 
+                        affordable prices. We strive to simplify home organization and enhance 
+                        daily living through thoughtful product selection and exceptional customer service.
+                    </p>
+                </div>
+                
+                <div class="mv-card vision">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="mv-title">Our Vision</h3>
+                    <p class="mv-description">
+                        To become India's most trusted home essentials brand, known for our commitment 
+                        to quality, innovation, and customer satisfaction. We envision a future where 
+                        every Indian household has access to products that make their daily lives 
+                        easier, more organized, and more beautiful.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="our-values">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Core Values</h2>
+                <p class="section-subtitle">
+                    These principles guide everything we do and shape our relationship with customers, 
+                    partners, and our community.
+                </p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="value-title">Quality First</h3>
+                    <p class="value-description">
+                        We never compromise on quality. Every product undergoes rigorous testing 
+                        to ensure it meets our high standards for durability, functionality, and safety.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="value-title">Customer-Centric</h3>
+                    <p class="value-description">
+                        Our customers are at the heart of everything we do. We listen to their needs, 
+                        value their feedback, and continuously improve our products and services.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="value-title">Transparency</h3>
+                    <p class="value-description">
+                        We believe in honest communication, fair pricing, and clear product information. 
+                        What you see is what you get - no hidden costs or misleading claims.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-description">
+                        We constantly seek new and better ways to serve our customers, from discovering 
+                        innovative products to improving our shopping experience.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="value-title">Sustainability</h3>
+                    <p class="value-description">
+                        We're committed to environmental responsibility, choosing eco-friendly packaging 
+                        and promoting products that support sustainable living.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="value-title">Community</h3>
+                    <p class="value-description">
+                        We're more than a business - we're part of a community of homeowners who 
+                        share tips, inspiration, and support for creating better living spaces.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="our-team">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meet Our Team</h2>
+                <p class="section-subtitle">
+                    The passionate people behind Home Essentials who work every day to bring you 
+                    the best home products and shopping experience.
+                </p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Rahul Sharma" loading="lazy">
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Rahul Sharma</h3>
+                        <p class="member-position">Founder & CEO</p>
+                        <p class="member-description">
+                            With 10+ years in retail and e-commerce, Rahul leads our vision of making 
+                            quality home products accessible to all Indian households.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Priya Patel" loading="lazy">
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Priya Patel</h3>
+                        <p class="member-position">Head of Product</p>
+                        <p class="member-description">
+                            An interior design expert with a passion for functional living, Priya 
+                            curates our product collection to ensure every item adds value to your home.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Amit Kumar" loading="lazy">
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Amit Kumar</h3>
+                        <p class="member-position">Customer Experience Manager</p>
+                        <p class="member-description">
+                            Dedicated to ensuring every customer has an exceptional experience, 
+                            Amit leads our support team and customer satisfaction initiatives.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Sneha Reddy" loading="lazy">
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Sneha Reddy</h3>
+                        <p class="member-position">Marketing Director</p>
+                        <p class="member-description">
+                            A creative strategist who connects our brand with customers through 
+                            compelling storytelling and digital marketing expertise.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Achievements</h2>
+                <p class="section-subtitle">
+                    Milestones that reflect our commitment to excellence and customer satisfaction
+                </p>
+            </div>
+            
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="achievement-title">Best E-commerce Store 2024</h3>
+                    <p class="achievement-description">
+                        Recognized by India Retail Awards for exceptional customer service 
+                        and product quality in the home essentials category.
+                    </p>
+                    <span class="achievement-year">2024</span>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="achievement-title">10,000+ Happy Customers</h3>
+                    <p class="achievement-description">
+                        Reached the milestone of serving over 10,000 satisfied customers 
+                        across India with our quality home products.
+                    </p>
+                    <span class="achievement-year">2024</span>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="achievement-title">4.8/5 Customer Rating</h3>
+                    <p class="achievement-description">
+                        Consistently maintained high customer satisfaction with an average 
+                        rating of 4.8 out of 5 stars across all reviews.
+                    </p>
+                    <span class="achievement-year">2024</span>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3 class="achievement-title">99% On-Time Delivery</h3>
+                    <p class="achievement-description">
+                        Achieved remarkable delivery reliability with 99% of orders 
+                        delivered on time across all serviceable locations.
+                    </p>
+                    <span class="achievement-year">2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Join Our Home Essentials Family</h2>
+                <p class="cta-description">
+                    Discover quality products that transform your house into a home. 
+                    Start your journey with us today and experience the difference.
+                </p>
+                <div class="cta-actions">
+                    <a href="products.html" class="btn btn-primary">
+                        <i class="fas fa-shopping-bag"></i>
+                        Shop Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2 class="newsletter-title">Stay Updated</h2>
+                    <p class="newsletter-subtitle">
+                        Get the latest deals, new products, and home tips delivered to your inbox
+                    </p>
+                </div>
+                <form class="newsletter-form" id="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                        <button type="submit" class="newsletter-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Subscribe
+                        </button>
+                    </div>
+                    <p class="newsletter-privacy">
+                        <i class="fas fa-lock"></i>
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <i class="fas fa-home"></i>
+                            <span>Home Essentials</span>
+                        </a>
+                        <p class="footer-description">
+                            Your trusted partner for quality home products. 
+                            We bring convenience, style, and functionality to every home.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html?category=storage">Storage Organizers</a></li>
+                        <li><a href="products.html?category=cookware">Cookware</a></li>
+                        <li><a href="products.html?category=bathroom">Bathroom Essentials</a></li>
+                        <li><a href="products.html?category=kids">Kids Products</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>New Delhi, India</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 99999 99999</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@homeessentials.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        &copy; 2025 Home Essentials. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">Shopping Cart</h3>
+            <button class="cart-close" id="cart-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-content" id="cart-content">
+            <!-- Cart items will be loaded dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="total-label">Total: </span>
+                <span class="total-amount" id="cart-total">₹0</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkout-btn">
+                <i class="fas fa-credit-card"></i>
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

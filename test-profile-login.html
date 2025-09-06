@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Login/Logout Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 100px;
+        }
+        .test-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .test-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .test-btn {
+            padding: 12px 24px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .test-btn:hover {
+            background: #0056b3;
+            transform: translateY(-1px);
+        }
+        .test-btn.secondary {
+            background: #6c757d;
+        }
+        .test-btn.secondary:hover {
+            background: #545b62;
+        }
+        .status {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .demo-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-home"></i>
+                        <span>Home Essentials</span>
+                    </a>
+                </div>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="products.html" class="nav-link">Products</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle">Categories <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="products.html?category=storage" class="dropdown-link">Storage Organizers</a></li>
+                                <li><a href="products.html?category=cookware" class="dropdown-link">Cookware</a></li>
+                                <li><a href="products.html?category=bathroom" class="dropdown-link">Bathroom Essentials</a></li>
+                                <li><a href="products.html?category=kids" class="dropdown-link">Kids Products</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search products..." id="search-input">
+                        <button class="search-btn" id="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="user-menu" id="user-menu">
+                        <button class="user-btn" id="user-btn" title="User Account Menu" aria-label="Open user account menu" data-login-text="Login" data-logout-text="Logout">
+                            <i class="fas fa-user" aria-hidden="true" data-profile-placeholder="👤"></i>
+                            <span class="user-text" id="user-text">Login</span>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <div class="user-info" id="user-info">
+                                <div class="user-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="user-details">
+                                    <span class="user-name" id="user-name">Guest</span>
+                                    <span class="user-email" id="user-email">Not logged in</span>
+                                </div>
+                            </div>
+                            <div class="user-actions">
+                                <a href="login.html" class="user-action" id="login-action">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Login
+                                </a>
+                                <a href="login.html#orders" class="user-action" id="orders-action" style="display: none;">
+                                    <i class="fas fa-box"></i>
+                                    My Orders
+                                </a>
+                                <a href="login.html#profile" class="user-action" id="profile-action" style="display: none;">
+                                    <i class="fas fa-user-cog"></i>
+                                    Profile
+                                </a>
+                                <a href="#" class="user-action" id="logout-action" style="display: none;">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="cart-btn" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Test Container -->
+    <div class="test-container">
+        <div class="test-section">
+            <h1 class="test-title">Profile Login/Logout Test</h1>
+            <div class="demo-text">
+                ✅ <strong>Three-line menu button removed</strong><br>
+                ✅ <strong>Profile placeholder shows "Login/Logout" text on hover</strong><br>
+                ✅ <strong>Direct login/logout functionality on profile button click</strong>
+            </div>
+            
+            <div class="button-group">
+                <button class="test-btn" onclick="simulateLogin()">Simulate Login</button>
+                <button class="test-btn secondary" onclick="simulateLogout()">Simulate Logout</button>
+                <button class="test-btn" onclick="checkStatus()">Check Status</button>
+            </div>
+            
+            <div id="status-display" class="status info">
+                <strong>Instructions:</strong><br>
+                1. Hover over the profile button to see "Login/Logout" text appear<br>
+                2. Click the profile button when logged out - redirects to login page<br>
+                3. Click the profile button when logged in - shows user dropdown<br>
+                4. Notice the three-line menu button has been removed from the header
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2 class="test-title">Test Features</h2>
+            <div class="demo-text">
+                <strong>Profile Button Behavior:</strong><br>
+                • <strong>Not Logged In:</strong> Shows "Login" text on hover, redirects to login page on click<br>
+                • <strong>Logged In:</strong> Shows "Logout" text on hover, opens user dropdown on click<br>
+                • <strong>Smooth Animation:</strong> Text slides in from left on hover with fade effect<br>
+                • <strong>Responsive Design:</strong> Adapts to different screen sizes
+            </div>
+            
+            <div class="demo-text">
+                <strong>Header Improvements:</strong><br>
+                • <strong>Cleaner Design:</strong> Removed three-line menu button for less clutter<br>
+                • <strong>Better UX:</strong> Direct login/logout action from profile button<br>
+                • <strong>Visual Feedback:</strong> Clear text indicators for user state<br>
+                • <strong>Accessibility:</strong> Proper ARIA labels and keyboard navigation
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        function simulateLogin() {
+            const testUser = {
+                firstName: 'John',
+                lastName: 'Doe',
+                email: 'john.doe@example.com',
+                phone: '1234567890'
+            };
+            
+            localStorage.setItem('homeEssentials_user', JSON.stringify(testUser));
+            
+            if (typeof updateUserMenuDisplay === 'function') {
+                updateUserMenuDisplay();
+            }
+            
+            if (typeof updateUserButtonText === 'function') {
+                updateUserButtonText();
+            }
+            
+            showStatus('✅ Login simulated! Hover over profile button to see "Logout" text.', 'success');
+        }
+        
+        function simulateLogout() {
+            localStorage.removeItem('homeEssentials_user');
+            
+            if (typeof updateUserMenuDisplay === 'function') {
+                updateUserMenuDisplay();
+            }
+            
+            if (typeof updateUserButtonText === 'function') {
+                updateUserButtonText();
+            }
+            
+            showStatus('✅ Logout simulated! Hover over profile button to see "Login" text.', 'success');
+        }
+        
+        function checkStatus() {
+            const userData = localStorage.getItem('homeEssentials_user');
+            const userBtn = document.getElementById('user-btn');
+            const userText = document.getElementById('user-text');
+            
+            if (userData) {
+                const user = JSON.parse(userData);
+                showStatus(`✅ Logged in as: ${user.firstName} ${user.lastName} (${user.email})`, 'success');
+            } else {
+                showStatus('ℹ️ Not logged in. Profile button will redirect to login page.', 'info');
+            }
+            
+            if (userText) {
+                showStatus(`Current button text: "${userText.textContent}"`, 'info');
+            }
+        }
+        
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('status-display');
+            statusDiv.className = `status ${type}`;
+            statusDiv.innerHTML = message;
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkStatus();
+        });
+    </script>
+</body>
+</html>

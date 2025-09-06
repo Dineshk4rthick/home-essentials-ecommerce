@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Home Essentials | Quality Home Products</title>
+    <meta name="description" content="Browse our complete collection of home essentials including storage organizers, cookware, bathroom accessories, kids products, and more. Quality guaranteed with up to 35% off.">
+    <meta name="keywords" content="home products, storage solutions, cookware, bathroom essentials, kids products, floor mats, sofa covers">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Products - Home Essentials">
+    <meta property="og:description" content="Browse quality home products with up to 35% off. Storage, cookware, and more.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-home"></i>
+                        <span>Home Essentials</span>
+                    </a>
+                </div>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="products.html" class="nav-link active">Products</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle">Categories <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="products.html?category=storage" class="dropdown-link">Storage Organizers</a></li>
+                                <li><a href="products.html?category=cookware" class="dropdown-link">Cookware</a></li>
+                                <li><a href="products.html?category=bathroom" class="dropdown-link">Bathroom Essentials</a></li>
+                                <li><a href="products.html?category=kids" class="dropdown-link">Kids Products</a></li>
+                                <li><a href="products.html?category=mats" class="dropdown-link">Floor Mats</a></li>
+                                <li><a href="products.html?category=sofa" class="dropdown-link">Sofa Covers</a></li>
+                                <li><a href="products.html?category=trash" class="dropdown-link">Trash Solutions</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search products..." id="search-input">
+                        <button class="search-btn" id="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="user-menu" id="user-menu">
+                        <button class="user-btn" id="user-btn" title="User Account Menu" aria-label="Open user account menu" data-login-text="Login" data-logout-text="Logout">
+                            <i class="fas fa-user" aria-hidden="true" data-profile-placeholder="👤"></i>
+                            <span class="user-text" id="user-text">Login</span>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <div class="user-info" id="user-info">
+                                <div class="user-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="user-details">
+                                    <span class="user-name" id="user-name">Guest</span>
+                                    <span class="user-email" id="user-email">Not logged in</span>
+                                </div>
+                            </div>
+                            <div class="user-actions">
+                                <a href="login.html" class="user-action" id="login-action">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Login
+                                </a>
+                                <a href="login.html#orders" class="user-action" id="orders-action" style="display: none;">
+                                    <i class="fas fa-box"></i>
+                                    My Orders
+                                </a>
+                                <a href="login.html#profile" class="user-action" id="profile-action" style="display: none;">
+                                    <i class="fas fa-user-cog"></i>
+                                    Profile
+                                </a>
+                                <a href="#" class="user-action" id="logout-action" style="display: none;">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="cart-btn" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span id="breadcrumb-current">Products</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-header">
+                <div class="products-title-section">
+                    <h1 class="page-title" id="page-title">All Products</h1>
+                    <p class="page-subtitle" id="page-subtitle">Discover our complete collection of quality home essentials</p>
+                </div>
+                <div class="products-count">
+                    <span id="products-count">18 products</span>
+                </div>
+            </div>
+
+            <div class="products-content">
+                <!-- Sidebar Filters -->
+                <aside class="filters-sidebar">
+                    <div class="filters-header">
+                        <h3 class="filters-title">Filters</h3>
+                        <button class="filters-clear" id="clear-filters">
+                            <i class="fas fa-undo"></i>
+                            Clear All
+                        </button>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">Categories</h4>
+                        <div class="filter-options" id="category-filters">
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="all" checked>
+                                <span class="checkmark"></span>
+                                <span class="option-text">All Categories</span>
+                                <span class="option-count" id="count-all">18</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="storage">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Storage Organizers</span>
+                                <span class="option-count" id="count-storage">6</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="cookware">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Cookware</span>
+                                <span class="option-count" id="count-cookware">3</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="bathroom">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Bathroom Essentials</span>
+                                <span class="option-count" id="count-bathroom">3</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="kids">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Kids Products</span>
+                                <span class="option-count" id="count-kids">2</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="mats">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Floor Mats</span>
+                                <span class="option-count" id="count-mats">2</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="sofa">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Sofa Covers</span>
+                                <span class="option-count" id="count-sofa">1</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="trash">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Trash Solutions</span>
+                                <span class="option-count" id="count-trash">1</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Range Filter -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">Price Range</h4>
+                        <div class="price-range">
+                            <div class="price-inputs">
+                                <input type="number" id="price-min" placeholder="Min" min="0" max="5000" value="799">
+                                <input type="number" id="price-max" placeholder="Max" min="0" max="5000" value="2499">
+                            </div>
+                            <div class="price-slider">
+                                <input type="range" id="price-range-min" min="799" max="2499" value="799" class="slider">
+                                <input type="range" id="price-range-max" min="799" max="2499" value="2499" class="slider">
+                            </div>
+                            <div class="price-labels">
+                                <span>₹799</span>
+                                <span>₹2,499</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">Customer Rating</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="radio" name="rating" value="all" checked>
+                                <span class="checkmark"></span>
+                                <span class="option-text">All Ratings</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="rating" value="4">
+                                <span class="checkmark"></span>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span class="rating-text">4+ Stars</span>
+                                </div>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="rating" value="4.5">
+                                <span class="checkmark"></span>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span class="rating-text">4.5+ Stars</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Availability Filter -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">Availability</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" id="in-stock" checked>
+                                <span class="checkmark"></span>
+                                <span class="option-text">In Stock</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" id="featured">
+                                <span class="checkmark"></span>
+                                <span class="option-text">Featured Products</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Products Area -->
+                <main class="products-main">
+                    <!-- Toolbar -->
+                    <div class="products-toolbar">
+                        <div class="toolbar-left">
+                            <button class="filters-toggle" id="filters-toggle">
+                                <i class="fas fa-filter"></i>
+                                Filters
+                            </button>
+                            <div class="view-toggle">
+                                <button class="view-btn active" data-view="grid" title="Grid View">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                                <button class="view-btn" data-view="list" title="List View">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="toolbar-right">
+                            <div class="sort-dropdown">
+                                <select id="sort-select" class="sort-select">
+                                    <option value="default">Sort by: Default</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="rating">Customer Rating</option>
+                                    <option value="newest">Newest First</option>
+                                    <option value="popular">Most Popular</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Active Filters -->
+                    <div class="active-filters" id="active-filters" style="display: none;">
+                        <div class="active-filters-header">
+                            <span>Active Filters:</span>
+                            <button class="clear-all-filters">Clear All</button>
+                        </div>
+                        <div class="active-filters-list" id="active-filters-list">
+                            <!-- Active filters will be inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="products-grid" id="products-grid">
+                        <!-- Products will be loaded dynamically -->
+                    </div>
+
+                    <!-- Load More Button -->
+                    <div class="load-more-section" id="load-more-section" style="display: none;">
+                        <button class="btn btn-outline-large" id="load-more-btn">
+                            <i class="fas fa-plus"></i>
+                            Load More Products
+                        </button>
+                    </div>
+
+                    <!-- No Results -->
+                    <div class="no-results" id="no-results" style="display: none;">
+                        <i class="fas fa-search"></i>
+                        <h3>No products found</h3>
+                        <p>Try adjusting your search criteria or filters</p>
+                        <button class="btn btn-primary" onclick="clearAllFilters()">
+                            <i class="fas fa-undo"></i>
+                            Clear Filters
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2 class="newsletter-title">Stay Updated</h2>
+                    <p class="newsletter-subtitle">
+                        Get the latest deals, new products, and home tips delivered to your inbox
+                    </p>
+                </div>
+                <form class="newsletter-form" id="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                        <button type="submit" class="newsletter-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Subscribe
+                        </button>
+                    </div>
+                    <p class="newsletter-privacy">
+                        <i class="fas fa-lock"></i>
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <i class="fas fa-home"></i>
+                            <span>Home Essentials</span>
+                        </a>
+                        <p class="footer-description">
+                            Your trusted partner for quality home products. 
+                            We bring convenience, style, and functionality to every home.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html?category=storage">Storage Organizers</a></li>
+                        <li><a href="products.html?category=cookware">Cookware</a></li>
+                        <li><a href="products.html?category=bathroom">Bathroom Essentials</a></li>
+                        <li><a href="products.html?category=kids">Kids Products</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>New Delhi, India</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 99999 99999</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@homeessentials.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        &copy; 2025 Home Essentials. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">Shopping Cart</h3>
+            <button class="cart-close" id="cart-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-content" id="cart-content">
+            <!-- Cart items will be loaded dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="total-label">Total: </span>
+                <span class="total-amount" id="cart-total">₹0</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkout-btn">
+                <i class="fas fa-credit-card"></i>
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/products-page.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
